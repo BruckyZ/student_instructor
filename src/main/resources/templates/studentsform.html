@@ -8,7 +8,7 @@
 
 <form action="#" th:action="@{/processstudents}" th:object="${studant}" method="post">
 
-    <input type="hidden" th:field="*{students_id}"/>
+    <input type="hidden" th:field="*{id}"/>
 
     first_name: <input type="text" th:field="*{first_name}"/>
     <span th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}"></span><br/>

@@ -66,7 +66,7 @@ public class controller
 			userService.saveUserData(user);
 			model.addAttribute("message", "User Account Successfully Created");
 		}
-		return "index";
+		return "/";
 	}
 
 	@GetMapping("/addcourse")
