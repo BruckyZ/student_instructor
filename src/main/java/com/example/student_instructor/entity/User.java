@@ -6,29 +6,22 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name="USER_DATA")
 public class User
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@Column(name="email", nullable=false)
+
 	private String email;
 
-	@Column(name="password")
 	private String password;
 
-	@Column(name="first_name")
 	private String first_name;
 
-	@Column(name="last_name")
 	private String last_name;
-
-	@Column(name="enabled")
 	private String enabled;
 
-	@Column(name="username")
 	private String username;
 
 	@ManyToMany(fetch = FetchType.EAGER)

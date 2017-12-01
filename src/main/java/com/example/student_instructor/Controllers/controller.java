@@ -161,18 +161,6 @@ public class controller
 	}
 
 
-//	@GetMapping("/addinstructorstostudents/{id}")                 //instructors mapped by student
-//	public String addInstructors(@PathVariable("id") long studId, Model model)
-//	{
-//		Students thisstudents=StudentsRepository.findOne(new Long(studId));
-//		Iterable instructorinstudents=thisstudents.getInstructor();
-//
-//		model.addAttribute("stud", thisstudents);
-//		//		model.addAttribute("instructur",InstructorsRepository.findOne(new Long(student_id)));
-//		model.addAttribute("Studentlist",StudentsRepository.findAll());
-//		return "studentaddinstructor";
-//	}
-
 	@GetMapping("/addstudentstoinstructors/{id}")                 //instructors mapped by student
 	public String addStudents(@PathVariable("id") long instructor_id, Model model)
 	{
@@ -203,32 +191,9 @@ public class controller
 
 	@PostMapping("/searchform")
 	public String searchform(@RequestParam("searchtext") String searchtext, Model model)
-
-
 	{
 		model.addAttribute("SearchStudent", StudentsRepository.findAllByEmailContains(searchtext));
 		return "searchform";
 	}
-//
-//	@RequestMapping("/searchform1")
-//	public String SearchResult()
-//	{
-//		Iterable<Instructors>instructors=InstructorsRepository.findAll();
-//		for(Instructors I:instructors)
-//		{
-//			System.out.println("Instructor Full Name"+I.getFirst_name()+" "+I.getLast_name());
-//			System.out.println("Course Name"+I.getCourses());
-//		}
-//		for(Students S:StudentsRepository.findAll())
-//		{
-//			System.out.println("Get Student Full Name"+S.getFirst_name()+" "+S.getLast_name());
-//
-//		}
-//		for(Courses C:CoursesRepository.findAll())
-//		{
-//			System.out.println("Get Student Full Name"+C.getCourse_number());
-//
-//		}
-//		return "redirect:/";
-//	}
+
 }
