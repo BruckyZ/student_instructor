@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Courses</title>
+</head>
+<body>
+
+<a href="addinstructors">Add Instructors</a><br/>
+<a href="/">Index Page</a><br/>
+
+<table>
+    <tr>
+        <th>First_name</th>
+        <th>Last_name</th>
+        <th>Contactnumber</th>
+        <th>Email</th>
+        <!--<th>Actions</th>-->
+    </tr>
+    <tr th:each="instructer:${Cinstructer}">
+        <td th:text="${instructer.first_name}"></td>
+        <td th:text="${instructer.last_name}"></td>
+        <td th:text="${instructer.Contactnumber}"></td>
+        <td th:text="${instructer.email}"></td>
+
+        <!--<td>-->
+        <!--<a th:href="@{/update/{id}(id=${cours.id})}">Update Courses</a>-->
+        <!--<a th:href="@{/delete/{id}(id=${cours.id})}">Delete Courses</a>-->
+        <!--</td>-->
+    </tr>
+</table>
+</body>
+</html>

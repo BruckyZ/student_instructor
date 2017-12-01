@@ -2,8 +2,7 @@ package com.example.student_instructor.entity;
 
 //import com.example.week7_challenge.repositories.JobSeekerRepository;
 
-import com.example.student_instructor.repository.RoleRepository;
-import com.example.student_instructor.repository.UserRepository;
+import com.example.student_instructor.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +16,15 @@ public class UserService {
 
 	@Autowired
 	RoleRepository roleRepository;
+
+	@Autowired
+	coursesRepository CoursesRepository;
+
+	@Autowired
+	studentsRepository StudentsRepository;
+
+	@Autowired
+	instructorsRepository InstructorsRepository;
 
 	@Autowired
 	public UserService(UserRepository userRepository) {

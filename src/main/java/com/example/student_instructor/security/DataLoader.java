@@ -1,9 +1,7 @@
 package com.example.student_instructor.security;
 
-import com.example.student_instructor.entity.Role;
-import com.example.student_instructor.entity.User;
-import com.example.student_instructor.repository.RoleRepository;
-import com.example.student_instructor.repository.UserRepository;
+import com.example.student_instructor.entity.*;
+import com.example.student_instructor.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -15,6 +13,18 @@ public class DataLoader implements CommandLineRunner {
 
     @Autowired
     UserRepository userRepo;
+
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    coursesRepository CoursesRepository;
+
+    @Autowired
+    studentsRepository StudentsRepository;
+
+    @Autowired
+    instructorsRepository InstructorsRepository;
 
     @Override
     public void run(String... strings) throws Exception {
@@ -31,6 +41,18 @@ public class DataLoader implements CommandLineRunner {
         u.setEmail("person@person.com");
         u.addRole(appRoles.findByRole("ADMIN"));
         userRepo.save(u);
+
+
+        Courses courses=new Courses("Java","1","Java Programming course");
+        CoursesRepository.save(courses);
+
+        Instructors instructors=new Instructors("Brook", "Gebre", "504-451-1543","Brookz@gmail.com");
+        instructors.addCourse(courses);
+        InstructorsRepository.save(instructors);
+
+        Students students=new Students("Bruck", "Zewge", "202-451-1543","bz@gmail.com");
+        students.addInstructor(instructors);
+        StudentsRepository.save(students);
 
     }
 }

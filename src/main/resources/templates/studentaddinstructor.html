@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+
+
+<form th:action="@{/addstudentstoinstructors}"  th:object="${instructer}"  method="post">
+
+    <input type="text" th:value="${instructer.id}" name="instructorid"/>
+    <label th:inline="text"> Adding Instructors </label>
+
+    <select name="Students">
+        <option th:each="aStudent:${Studentlist}" th:value="${aStudent.id}" th:text="${aStudent.first_name}">Student id</option>
+    </select>
+
+    <input type="Submit" value="Add Instructor"/>
+</form>
+
+</body>
+</html>

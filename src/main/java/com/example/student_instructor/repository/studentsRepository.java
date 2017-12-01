@@ -6,6 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface studentsRepository extends CrudRepository<Students, Long>
 {
-//Iterable<Students>findallbyInstructorsIsIn(Iterable<Instructors>instructors);
+//  Iterable<Students> findAllByContactnumberContaining(String fN);
+  Iterable<Students> findAllByEmailContains(String cN);
 }
 

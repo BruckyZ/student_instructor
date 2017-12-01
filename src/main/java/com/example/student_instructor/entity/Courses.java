@@ -3,6 +3,7 @@ package com.example.student_instructor.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -35,12 +36,13 @@ public class Courses
 	private Set<Instructors> Instructor;               //Instructors has course
 
 
-	public Courses(String title, String course_number, String description, Set<Instructors> instructor)
+	public Courses(String title, String course_number, String description)
 	{
 		this.title = title;
 		this.course_number = course_number;
 		this.description = description;
-		Instructor = instructor;
+		//Creating constructor instatiating for Set objects
+		this.Instructor=new HashSet<Instructors>();
 	}
 
 	public Courses()

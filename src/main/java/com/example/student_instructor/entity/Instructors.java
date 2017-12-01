@@ -3,6 +3,7 @@ package com.example.student_instructor.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -41,14 +42,14 @@ public class Instructors
 	{
 	}
 
-	public Instructors(String first_name, String last_name, String contactnumber, String email, Set<Students> student, Set<Courses> courses)
+	public Instructors(String first_name, String last_name, String contactnumber, String email)
 	{
 		this.first_name = first_name;
 		this.last_name = last_name;
 		Contactnumber = contactnumber;
 		this.email = email;
-		Student = student;
-		this.courses = courses;
+	//Creating constructor instatiating for Set objects. Having many to many relation which using a Set yu need to Instastiating it
+		this.courses=new HashSet<Courses>();
 	}
 
 	public long getId()

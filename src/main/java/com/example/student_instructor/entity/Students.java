@@ -3,6 +3,7 @@ package com.example.student_instructor.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -44,13 +45,13 @@ public class Students
 	{
 	}
 
-	public Students(String first_name, String last_name, String contactnumber, String email, Set<Instructors> instructor)
+	public Students(String first_name, String last_name, String contactnumber, String email)
 	{
 		this.first_name = first_name;
 		this.last_name = last_name;
 		Contactnumber = contactnumber;
 		this.email = email;
-		this.instructor = instructor;
+		this.instructor = new HashSet<Instructors>();
 	}
 
 	public long getId()
