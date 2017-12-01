@@ -75,10 +75,10 @@ public class controller
 		}
 		else
 		{
-			userService.saveUserData(user);
+			userService.saveAdmin(user);
 			model.addAttribute("message", "User Account Successfully Created");
 		}
-		return "/";
+		return "/login";
 	}
 
 

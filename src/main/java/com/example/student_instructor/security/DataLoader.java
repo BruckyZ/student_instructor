@@ -37,11 +37,24 @@ public class DataLoader implements CommandLineRunner {
 
         User u = new User();
         u.setPassword("pass");
-        u.setUsername("user");
+        u.setUsername("admin");
         u.setEmail("person@person.com");
         u.addRole(appRoles.findByRole("ADMIN"));
         userRepo.save(u);
 
+//
+//        Role bRole = new Role();
+//        aRole.setRole("USER");
+//        appRoles.save(bRole);
+//        System.out.println("Admin role has been created");
+//        User user = new User();
+//
+//        User u = new User();
+//        u.setPassword("pass");
+//        u.setUsername("user");
+//        u.setEmail("person@person.com");
+//        u.addRole(appRoles.findByRole("USER"));
+//        userRepo.save(u);
 
         Courses courses=new Courses("Java","1","Java Programming course");
         CoursesRepository.save(courses);

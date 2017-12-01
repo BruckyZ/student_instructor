@@ -1,118 +1,114 @@
 package com.example.student_instructor.entity;
 
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class User
-{
+public class User {
+	public User(){
+
+
+		this.roles = new HashSet<> ();
+
+	}
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-
+	@Email
+	@NotEmpty
 	private String email;
 
 	private String password;
 
-	private String first_name;
+	private String firstName;
 
-	private String last_name;
-	private String enabled;
+	private String lastName;
+
+	private boolean enabled;
 
 	private String username;
 
+
+	//The relationship many user's can have many roles each person can have one or more or zero
 	@ManyToMany(fetch = FetchType.EAGER)
+	//Join Coulnm one it will save for from this table for realtionship to role in database
+	@JoinTable(joinColumns = @JoinColumn(name="user_id"),inverseJoinColumns = @JoinColumn(name="role_id"))
 	private Set<Role> roles;
 
-	public User() {
-		this.roles=new HashSet<>();
-	}
-
-	public long getId()
-	{
+	public long getId() {
 		return id;
 	}
 
-	public void setId(long id)
-	{
+	public void setId(long id) {
 		this.id = id;
 	}
 
-	public String getEmail()
-	{
+	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(String email)
-	{
+	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public String getPassword()
-	{
+	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(String password)
-	{
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public String getFirst_name()
-	{
-		return first_name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFirst_name(String first_name)
-	{
-		this.first_name = first_name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getLast_name()
-	{
-		return last_name;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setLast_name(String last_name)
-	{
-		this.last_name = last_name;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public String getEnabled()
-	{
+	public boolean isEnabled() {
 		return enabled;
 	}
 
-	public void setEnabled(String enabled)
-	{
+	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 
-	public String getUsername()
-	{
+	public String getUsername() {
 		return username;
 	}
 
-	public void setUsername(String username)
-	{
+	public void setUsername(String username) {
 		this.username = username;
 	}
 
-	public Set<Role> getRoles()
-	{
+	public Set<Role> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(Set<Role> roles)
-	{
+	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
 
-	public void addRole(Role role)
-	{
-		this.roles.add(role);
+	public void addRole(Role theRole){
+		roles.add ( theRole );
+
 	}
 }
