@@ -39,14 +39,16 @@ public class UserService {
 	public User findByUsername(String username){
 		return userRepository.findByUsername(username);
 	}
+
 //	public void saveUserData(User user) {
 //		user.addRole (roleRepository.findByRole("USER"));
-////		user.setEnabled(true);
+//		user.setEnabled(true);
 //		userRepository.save(user);
 //	}
+
 	public void saveAdmin(User user) {
 		user.addRole (roleRepository.findByRole("ADMIN"));
-//		user.setEnabled(true);
+		user.setEnabled(true);
 		userRepository.save(user);
 	}
 }

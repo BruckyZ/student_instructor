@@ -49,7 +49,7 @@ public class Students
 	{
 		this.first_name = first_name;
 		this.last_name = last_name;
-		Contactnumber = contactnumber;
+			Contactnumber = contactnumber;
 		this.email = email;
 		this.instructor = new HashSet<Instructors>();
 	}
@@ -103,16 +103,6 @@ public class Students
 	{
 		this.email = email;
 	}
-
-//	public Set<Courses> getCourses()
-//	{
-//		return courses;
-//	}
-//
-//	public void setCourses(Set<Courses> courses)
-//	{
-//		this.courses = courses;
-//	}
 
 	public Set<Instructors> getInstructor()
 	{

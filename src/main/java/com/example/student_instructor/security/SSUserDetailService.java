@@ -52,22 +52,6 @@ public class SSUserDetailService implements UserDetailsService
 	}
 
 
-/*	private Set<GrantedAuthority> getAuthorities(User user) {
-		System.out.println("Entered getAuthorities");
-		Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
-		System.out.println(user.getRoles());
-
-		for(Role eachRole:user.getRoles())
-		{
-			System.out.println("user permission");
-			GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(eachRole.getRole());
-			authorities.add(grantedAuthority);
-			System.out.println("Granted Authority"+eachRole.getRole());
-		}
-		return authorities;
-	}*/
-
-
 	public Set<GrantedAuthority> getAuthorities(User user) {
 
 		Set <GrantedAuthority> authorities = new HashSet<GrantedAuthority>();

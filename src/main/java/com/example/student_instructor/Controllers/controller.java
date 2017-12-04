@@ -193,7 +193,7 @@ public class controller
 	public String searchform(@RequestParam("searchtext") String searchtext, Model model)
 	{
 		model.addAttribute("SearchStudent", StudentsRepository.findAllByEmailContains(searchtext));
-		return "searchform";
+		return "searchlist";
 	}
 
 }

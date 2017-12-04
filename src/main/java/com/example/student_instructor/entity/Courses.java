@@ -28,10 +28,6 @@ public class Courses
 
 	private String description;
 
-
-//	@ManyToMany(mappedBy = "courses")
-//	private Set<Students> Student;
-
 	@ManyToMany(mappedBy = "courses")
 	private Set<Instructors> Instructor;               //Instructors has course
 
@@ -88,16 +84,6 @@ public class Courses
 	{
 		this.description = description;
 	}
-
-//	public Set<Students> getStudent()
-//	{
-//		return Student;
-//	}
-//
-//	public void setStudent(Set<Students> student)
-//	{
-//		Student = student;
-//	}
 
 	public Set<Instructors> getInstructor()
 	{

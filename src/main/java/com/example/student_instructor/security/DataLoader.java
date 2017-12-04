@@ -33,7 +33,6 @@ public class DataLoader implements CommandLineRunner {
         aRole.setRole("ADMIN");
         appRoles.save(aRole);
         System.out.println("Admin role has been created");
-        User user = new User();
 
         User u = new User();
         u.setPassword("pass");
@@ -42,19 +41,19 @@ public class DataLoader implements CommandLineRunner {
         u.addRole(appRoles.findByRole("ADMIN"));
         userRepo.save(u);
 
-//
+
 //        Role bRole = new Role();
 //        aRole.setRole("USER");
 //        appRoles.save(bRole);
 //        System.out.println("Admin role has been created");
-//        User user = new User();
 //
-//        User u = new User();
-//        u.setPassword("pass");
-//        u.setUsername("user");
-//        u.setEmail("person@person.com");
-//        u.addRole(appRoles.findByRole("USER"));
-//        userRepo.save(u);
+//
+//        User u1 = new User();
+//        u1.setPassword("pass");
+//        u1.setUsername("user");
+//        u1.setEmail("person@person.com");
+//        u1.addRole(appRoles.findByRole("USER"));
+//        userRepo.save(u1);
 
         Courses courses=new Courses("Java","1","Java Programming course");
         CoursesRepository.save(courses);
